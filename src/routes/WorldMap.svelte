@@ -28,15 +28,16 @@
     drawMap(); // Redraw the map with the new projection settings
     }
 
-    //window.addEventListener('resize', () => {
-    //setProjectionAndPath();
-    //updateMap(dates[0]); // Make sure to pass the correct current date
-    //});
+
 
     onMount(async () => {
         worldData = await d3.json('globe.geo.json');
         const covidCsvData = await d3.csv('Covid_data/full_grouped.csv');
         covidData = processCovidData(covidCsvData);
+        window.addEventListener('resize', () => {
+        setProjectionAndPath();
+        updateMap(dates[0]); // Make sure to pass the correct current date
+        ç});
         dates = Object.keys(covidData[Object.keys(covidData)[0]]);
         daysCount = dates.length - 1;
     

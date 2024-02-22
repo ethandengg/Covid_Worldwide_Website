@@ -2,6 +2,8 @@
 	//export let name = 'World';
 	import WorldMap from './WorldMap.svelte';
 	let daysCount;
+
+  
   </script>
   
   <main>
