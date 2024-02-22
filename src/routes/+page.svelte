@@ -10,7 +10,7 @@
   
   <main>
 	<h1>WorldWide Covid Data</h1>
-	<p>A Visualizaiton of how covid took over the world, here is the data we used <a href="https://www.kaggle.com/datasets/imdevskp/corona-virus-report?resource=download">Covid Data</a>.</p>
+	<p>A Visualization of how covid took over the world, here is the data we used <a href="https://www.kaggle.com/datasets/imdevskp/corona-virus-report?resource=download">Covid Data</a>.</p>
 	<input type="range" min="0" max="daysCount" value="0" id="timeSlider" step="1">
 	<label for="timeSlider" id="sliderLabel">Date: </label>
 	<WorldMap/>

@@ -67,22 +67,34 @@
 
 
     function processCovidData(csvData) {
-        let processedData = {};
-        csvData.forEach(d => {
-            const cases = parseInt(d.Confirmed) || 0;
-            const deaths = parseInt(d.Deaths) || 0;
-            const recovered = parseInt(d.Recovered) || 0;
-            const date = d.Date;
-            const country = d['Country/Region'];
+    let processedData = {};
 
-            if (!processedData[country]) {
-                processedData[country] = {};
-            }
+    csvData.forEach(d => {
+        // If the country is labeled 'US', change it to 'United States'
+        const country = d['Country/Region'] === 'US' ? 'United States of America' : d['Country/Region'];
 
-            processedData[country][date] = { cases, deaths, recovered };
-        });
-        return processedData;
+        const cases = parseInt(d.Confirmed) || 0;
+        const deaths = parseInt(d.Deaths) || 0;
+        const recovered = parseInt(d.Recovered) || 0;
+        const date = d.Date;
+
+        if (!processedData[country]) {
+            processedData[country] = {};
+        }
+
+        if (!processedData[country][date]) {
+            processedData[country][date] = { cases: 0, deaths: 0, recovered: 0 };
+        }
+
+        // Aggregate the data for 'United States'
+        processedData[country][date].cases += cases;
+        processedData[country][date].deaths += deaths;
+        processedData[country][date].recovered += recovered;
+    });
+
+    return processedData;
     }
+
 
 
     
