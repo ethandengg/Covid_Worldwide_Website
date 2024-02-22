@@ -17,6 +17,8 @@
   },
   "type": "module",
   "dependencies": {
-    "d3": "^7.8.5"
+    "d3": "^7.8.5",
+    "svelte-kit": "^1.2.0",
+    "window": "^4.2.7"
   }
 }
