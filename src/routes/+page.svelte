@@ -2,9 +2,11 @@
 	//export let name = 'World';
 	import WorldMap from './WorldMap.svelte';
 	let daysCount;
+  import '../global.css';
 
-  
   </script>
+  
+
   
   <main>
 	<h1>WorldWide Covid Data</h1>
